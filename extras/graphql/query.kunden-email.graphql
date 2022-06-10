@@ -1,0 +1,22 @@
+query ($email: String = "admin@acme.com") {
+  kunden(input: {email: $email}) {
+    id
+    version
+    nachname
+    kategorie
+    newsletter
+    geburtsdatum
+    homepage
+    geschlecht
+    familienstand
+    interessen
+    umsatz {
+      betrag
+      waehrung
+    }
+    adresse {
+      plz
+      ort
+    }
+  }
+}

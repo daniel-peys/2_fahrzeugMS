@@ -1,0 +1,21 @@
+// Einen neuen Kunden anlegen
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+< data/fahrzeug-neu.json
+
+###
+
+// Einen neuen Kunden mit ungueltigen Daten versuchen anzulegen
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+< data/fahrzeug-neu-invalid.json
+
+###
+
+// Einen neuen Kunden mit ungueltigem Passwort versuchen anzulegen
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+< data/fahrzeug-neu-invalid-password.json

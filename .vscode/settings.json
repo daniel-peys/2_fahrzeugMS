@@ -1,0 +1,19 @@
+{
+  "rest-client.environmentVariables": {
+    "localHTTPS": {
+      "baseUrl": "https://localhost:8080",
+      "userAdmin": "admin",
+      "userKunde": "alpha",
+      "password": "p",
+      "passwordFalsch": "FALSCH"
+    },
+    "kubernetesHTTP": {
+      "baseUrl": "http://localhost:8080",
+      "userAdmin": "admin",
+      "userKunde": "alpha",
+      "password": "p",
+      "passwordFalsch": "FALSCH"
+    },
+  },
+  "liveServer.settings.port": 5501
+}

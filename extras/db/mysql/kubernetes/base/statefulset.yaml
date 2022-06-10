@@ -1,0 +1,87 @@
+# Copyright (C) 2022 - present Juergen Zimmermann, Hochschule Karlsruhe
+#
+# This program is free software: you can redistribute it and/or modify
+# #it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# kubectl logs postgres-0 --namespace acme
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+spec:
+  serviceName: mysql
+  selector:
+    matchLabels:
+      app: mysql
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      serviceAccountName: acme-mysql
+      containers:
+        - image: mysql:8.0.28-debian
+          name: mysql
+          envFrom:
+            - configMapRef:
+                name: mysql-env
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql
+                  key: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+          securityContext:
+            runAsNonRoot: true
+            # mysql
+            runAsUser: 999
+            runAsGroup: 999
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql-db-volume
+          livenessProbe:
+            exec:
+              command: ["sh", "-c", "mysqladmin --user=root --password=p --host=mysql-0 ping"]
+          readinessProbe:
+            exec:
+              command: [ "sh", "-c", "mysqladmin --user=root --password=p --host=mysql-0 ping" ]
+      volumes:
+        - name: mysql-db-volume
+          persistentVolumeClaim:
+            claimName: mysql-db-volume-mysql-0
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql-db-volume
+        labels:
+          app: mysql-db
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 2Gi
+        storageClassName: manual

@@ -1,0 +1,18 @@
+// Einloggen als Administrations-User
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username={{userAdmin}}&password={{password}}
+
+###
+
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username={{userKunde}}&password={{password}}
+
+###
+// Eigene Rollen ermitteln
+GET {{baseUrl}}/api/auth/rollen
+Accept: text/plain
+Authorization: Basic {{userAdmin}} {{password}}

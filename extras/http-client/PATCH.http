@@ -1,0 +1,69 @@
+// Einen Kunden mittels PATCH aktualisieren
+PATCH {{baseUrl}}/api/00000000-0000-0000-0000-000000000040
+If-Match: "0"
+Content-Type: application/json
+Authorization: Basic {{userAdmin}} {{password}}
+
+[
+    { "op": "replace", "path": "/nachname", "value": "Neuernamepatch" },
+    { "op": "replace", "path": "/email", "value": "new.email@test.depatch" },
+    { "op": "add", "path": "/interessen", "value": "S" },
+    { "op": "remove", "path": "/interessen", "value": "L" }
+]
+
+###
+
+// Einen Kunden mittels PATCH und ungueltigen Daten aktualisieren
+PATCH {{baseUrl}}/api/00000000-0000-0000-0000-000000000040
+If-Match: "0"
+Content-Type: application/json
+Authorization: Basic {{userAdmin}} {{password}}
+
+[
+  { "op": "replace", "path": "/email", "value": "emailungueltig@" }
+]
+
+###
+
+// Einen Kunden mit fehlerhaften Interessen mittels PATCH aktualisieren
+PATCH {{baseUrl}}/api/00000000-0000-0000-0000-000000000040
+If-Match: "0"
+Content-Type: application/json
+Authorization: Basic {{userAdmin}} {{password}}
+
+[
+    { "op": "replace", "path": "/nachname", "value": "Neuername" },
+    { "op": "replace", "path": "/email", "value": "new.email@test.de" },
+    { "op": "add", "path": "/interessen", "value": "X" },
+    { "op": "remove", "path": "/interessen", "value": "Y" }
+]
+
+###
+
+// Einen Kunden mittels PATCH und falschem Passwort aktualisieren: 401 (Unauthorized)
+PATCH {{baseUrl}}/api/00000000-0000-0000-0000-000000000001
+If-Match: "0"
+Content-Type: application/json
+Authorization: Basic {{userAdmin}} {{passwordFalsch}}
+
+[
+    { "op": "replace", "path": "/nachname", "value": "Neuername" },
+    { "op": "replace", "path": "/email", "value": "new.email@test.de" },
+    { "op": "add", "path": "/interessen", "value": "R" },
+    { "op": "remove", "path": "/interessen", "value": "L" }
+]
+
+###
+
+// Einen Kunden mittels PATCH und fehlenden Rechten aktualisieren: 403 (Forbidden)
+PATCH {{baseUrl}}/api/00000000-0000-0000-0000-000000000001
+If-Match: "0"
+Content-Type: application/json
+Authorization: Basic {{userKunde}} {{password}}
+
+[
+    { "op": "replace", "path": "/nachname", "value": "Neuername" },
+    { "op": "replace", "path": "/email", "value": "new.email@test.de" },
+    { "op": "add", "path": "/interessen", "value": "R" },
+    { "op": "remove", "path": "/interessen", "value": "L" }
+]

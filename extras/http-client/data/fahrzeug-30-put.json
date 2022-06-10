@@ -1,0 +1,12 @@
+{
+  "beschreibung": "Auto",
+  "kennzeichen": "KA P 1",
+  "kilometerstand": 518,
+  "erstzulassung": "1984-11-22",
+  "fahrzeugtyp": "P",
+  "fahrzeughalter": {
+    "vorname": "Fredi",
+    "nachname": "Peter"
+  },
+  "username": "alpha"
+}

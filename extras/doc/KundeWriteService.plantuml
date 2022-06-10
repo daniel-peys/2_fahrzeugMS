@@ -1,0 +1,68 @@
+' Copyright (C) 2019 - present Juergen Zimmermann, Hochschule Karlsruhe
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <https://www.gnu.org/licenses/>.
+@startuml KundeWriteService
+
+skinparam classAttributeIconSize 0
+
+package org.hibernate.reactive.mutiny {
+    interface SessionFactory
+}
+
+
+package com.acme.kunde {
+    package security {
+        class CustomUser << entity >>
+        class CustomUserDetailsService << control >> << @Service >>
+    }
+
+    package mail  {
+        class Mailer << control >>
+    }
+
+    package entity {
+        class Kunde << entity >>
+        class KundeId << typealias >>
+    }
+
+    package service #DDDDDD {
+        class KundeValidator << control >> << @Service >>
+        class KundeReadService << control >> << @Service >>
+        class CreateResult
+        class UpdateResult
+
+        class KundeWriteService << control >> << @Service >> {
+            + suspend create(kunde: Kunde, user: CustomUser): CreateResult
+            + suspend update(kunde: Kunde, id: KundeId, version: String): UpdateResult
+            + suspend deleteById(id: KundeId)
+        }
+
+        KundeWriteService o--> "1" SessionFactory : sessionFactory
+        KundeWriteService o-down-> "1" KundeValidator
+        KundeWriteService o--> "1" KundeReadService
+        KundeWriteService o--> "1" CustomUserDetailsService : userService
+        KundeWriteService o--> "1" Mailer : mailer
+        KundeWriteService .up.> Kunde
+        KundeWriteService .up.> KundeId
+        KundeWriteService ..> CustomUser
+        KundeWriteService .up.> CreateResult
+        KundeWriteService .up.> UpdateResult
+    }
+}
+
+hide empty members
+
+footer (c) Jürgen Zimmermann
+
+@enduml

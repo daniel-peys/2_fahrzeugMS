@@ -1,0 +1,17 @@
+{
+  "fahrzeug": {
+    "beschreibung": "",
+    "kennzeichen": "1",
+    "kilometerstand": -52,
+    "erstzulassung": "2984-11-22",
+    "fahrzeugtyp": "F",
+    "fahrzeughalter": {
+      "vorname": "",
+      "nachname": ""
+    }
+  },
+  "user": {
+    "username": "test",
+    "password": "Pass1234"
+  }
+}

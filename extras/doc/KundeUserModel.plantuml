@@ -1,0 +1,82 @@
+' Copyright (C) 2019 - present Juergen Zimmermann, Hochschule Karlsruhe
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <https://www.gnu.org/licenses/>.
+@startuml KundeUserModel
+
+skinparam classAttributeIconSize 0
+' skinparam monochrome true
+
+package org.springframework.security.core.userdetails {
+    class User
+}
+
+package com.acme.kunde {
+    package security {
+        CustomUser -up-|> User
+
+        class CustomUser
+    }
+    package rest #DDDDDD {
+        class Umsatz {
+            - betrag: BigDecimal
+            - waehrung: Currency
+        }
+
+        class Adresse {
+            - plz: String
+            - ort: String
+        }
+
+        enum GeschlechtType {
+            MAENNLICH
+            WEIBLICH
+            DIVERS
+        }
+
+        enum FamilienstandType {
+            LEDIG
+            VERHEIRATET
+            GESCHIEDEN
+            VERWITWET
+        }
+
+        enum InteresseType {
+            SPORT
+            LESEN
+            REISEN
+        }
+
+        class KundeUserModel << entity >> {
+            - nachname : String
+            - email : String
+            - kategorie: Int
+            - newsletter : Boolean
+            - geburtsdatum: LocalDate
+            - homepage: URL
+        }
+
+        KundeUserModel *--> "1" Umsatz : umsatz
+        KundeUserModel *--> "1" Adresse : adresse
+        KundeUserModel *--> "1" GeschlechtType : geschlecht
+        KundeUserModel *--> "1" FamilienstandType : familienstand
+        KundeUserModel *--> "*" InteresseType : interessen
+        KundeUserModel *-right-> "1" CustomUser : customUser
+    }
+}
+
+hide empty members
+
+footer (c) Jürgen Zimmermann
+
+@enduml

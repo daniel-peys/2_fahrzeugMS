@@ -5,6 +5,12 @@ Authorization: Basic admin p
 
 ###
 
+// Suche alle Kunden
+GET {{baseUrl}}/api
+Accept: application/hal+json
+
+###
+
 // Suche alle Kunden mit falschem Passwort: 401 (Unauthorized)
 GET {{baseUrl}}/api
 Authorization: Basic {{userAdmin}} {{passwordFalsch}}
@@ -23,6 +29,12 @@ Authorization: Basic {{userKunde}} {{password}}
 GET {{baseUrl}}/api/00000000-0000-0000-0000-000000000000
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
+
+###
+
+
+GET {{baseUrl}}/api/00000000-0000-0000-0000-000000000000
+Accept: application/hal+json
 
 ###
 

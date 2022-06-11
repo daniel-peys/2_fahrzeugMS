@@ -39,6 +39,8 @@ interface SecurityConfig {
             val fahrzeugIdPath = "$API_PATH/*"
 
             authorize(pathMatchers(GET, API_PATH), permitAll)
+            authorize(pathMatchers(GET, fahrzeugIdPath), permitAll)
+
             authorize(pathMatchers(POST, API_PATH), permitAll)
             authorize(pathMatchers(GET, API_PATH), hasRole(admin))
             authorize(pathMatchers(GET, "$API_PATH$AUTH_PATH/rollen", "$API_PATH$BESCHREIBUNGEN_PATH/*"), hasRole(fahrzeug))

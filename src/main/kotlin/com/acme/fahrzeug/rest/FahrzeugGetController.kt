@@ -87,7 +87,7 @@ class FahrzeugGetController(private val service: FahrzeugReadService) {
         principal: Principal?,
     ): ResponseEntity<Any> {
         logger.trace("findById: id={}, version={}", id, version)
-        val username = principal?.name ?: return status(FORBIDDEN).build()
+        val username = principal?.name ?: "gast"; //return status(FORBIDDEN).build()
 
         return when (val result = service.findById(id, username)) {
             is FindByIdResult.Success -> handleFound(result.fahrzeug, version, request)

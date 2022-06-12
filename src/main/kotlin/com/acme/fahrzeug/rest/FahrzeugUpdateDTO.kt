@@ -25,6 +25,8 @@ data class FahrzeugUpdateDTO(
     val erstzulassung: LocalDate?,
 
     val fahrzeugtype: FahrzeugType?,
+
+    val fahrzeughalter: Fahrzeughalter
     ) {
     /**
      * Konvertierung in ein Objekt des Anwendungskerns
@@ -38,7 +40,7 @@ data class FahrzeugUpdateDTO(
         erstzulassung = erstzulassung,
         fahrzeugtyp = fahrzeugtype,
         username = "TBD",
-        fahrzeughalter = Fahrzeughalter(id = null, vorname = "00000", "Ungueltig"),
+        fahrzeughalter = fahrzeughalter,
     )
 
     /**

@@ -1,8 +1,11 @@
 {
-    "beschreibung": "Felalieeeeeeeeee",
-    "erstzulassung": "2021-01-01",
-    "fahrzeughalter": {"vorname": "Franz", "nachname": "Peter"},
-    "fahrzeugtype": "A",
-    "kennzeichen": "W W 1",
-    "kilometerstand": 644
+    "beschreibung": "Kran",
+    "kennzeichen": "KA A 88",
+    "kilometerstand": 6,
+    "erstzulassung": "2021-01-06",
+    "fahrzeugtype": "N",
+    "fahrzeughalter": {
+        "vorname": "Wiiiiiiiiiiiiiiiiiiiiiiii                                    ",
+        "nachname": "Waaaa"
+    }
 }

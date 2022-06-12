@@ -76,11 +76,11 @@ class FahrzeugValidator(fahrzeughalterValidator: FahrzeughalterValidator) {
                 )
         }
 
-        Fahrzeug::erstzulassung {
+        /*Fahrzeug::erstzulassung {
             before { now(ZoneId.of(TIMEZONE_BERLIN)) }.message(
                 ViolationMessage.of("fahrzeug.erstzulassung.before", "The erstzulassung must be in the past."),
             )
-        }
+        }*/
 
         Fahrzeug::fahrzeughalter.nest(fahrzeughalterValidator.validator)
 

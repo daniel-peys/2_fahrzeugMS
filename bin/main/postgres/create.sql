@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS fahrzeug (
     kennzeichen         varchar(40) UNIQUE NOT NULL,
                   -- https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-CHECK-CONSTRAINTS
     kilometerstand     integer NOT NULL CHECK (kilometerstand >= 0 AND kilometerstand <= 999999999),
-    erstzulassung  date CHECK (erstzulassung < current_date),
+    erstzulassung  date, --CHECK (erstzulassung <= current_date),
     fahrzeugtyp    char(1) CHECK (fahrzeugtyp ~ 'A|N|P'),
     fahrzeughalter_id    uuid NOT NULL REFERENCES fahrzeughalter,
     username      varchar(20) NOT NULL REFERENCES login(username),

@@ -38,8 +38,6 @@ import org.springframework.stereotype.Service
 @Suppress("TooManyFunctions")
 /**
  * Anwendungslogik für das Schreiben von Fahrzeugen.
- *
- * ![Klassendiagramm](../../../images/KundeWriteService.svg)
  */
 @Service
 class FahrzeugWriteService(
@@ -162,7 +160,7 @@ class FahrzeugWriteService(
         }
 
         logger.trace("kennzeichenExists: Kennzeichen geaendert: {} -> {}", fahrzeugDb.kennzeichen, neuesKennzeichen)
-        // Gibt es die neue Emailadresse bei einem existierenden Kunden?
+        // Gibt es die neue Kennzeichen bei einem existierenden Fahrzeugen?
         return kennzeichenExists(neuesKennzeichen)
     }
 

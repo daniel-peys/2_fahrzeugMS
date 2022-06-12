@@ -44,8 +44,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
             <!-- https://github.com/hibernate/hibernate-orm/blob/5.6/hibernate-core/src/main/java/org/hibernate/tool/schema/Action.java -->
             <!-- https://github.com/hibernate/hibernate-orm/blob/5.6/hibernate-core/src/main/java/org/hibernate/tool/schema/SourceType.java -->
             <!--
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://postgres/kunde" />
-            <property name="javax.persistence.jdbc.user" value="kunde" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://postgres/fahrzeug" />
+            <property name="javax.persistence.jdbc.user" value="fahrzeug" />
             <property name="javax.persistence.jdbc.password" value="p" />
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
             <property name="javax.persistence.schema-generation.create-source" value="script" />

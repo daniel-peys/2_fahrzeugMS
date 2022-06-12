@@ -20,10 +20,8 @@ import javax.persistence.NoResultException
 // https://smallrye.io/smallrye-mutiny/guides/kotlin
 
 /**
- * Anwendungslogik für das Lesen von Kunden.
- *
- * ![Klassendiagramm](../../../images/KundeReadService.svg)
- *
+ * Anwendungslogik für das Lesen von Fahrzeugen.
+
  * @author [Jürgen Zimmermann](mailto:Juergen.Zimmermann@h-ka.de)
  */
 @Service
@@ -146,7 +144,7 @@ class FahrzeugReadService(
     private suspend fun findByKennzeichen(kennzeichen: String) = try {
         withTimeout(timeoutShort) {
             factory.withSession { session ->
-                // session.createNamedQuery(Kunde.BY_EMAIL, Kunde::class.java)
+                // session.createNamedQuery(Fahrzeug.BY_Kennzeichen, Fahrzeug::class.java)
                 session.createNamedQuery<Fahrzeug>(Fahrzeug.BY_KENNZEICHEN)
                     .setParameter(Fahrzeug.PARAM_KENNZEICHEN, kennzeichen)
                     .singleResult

@@ -38,7 +38,7 @@ $schema = 'http'
 $authority = 'localhost:8080'
 #$authority = 'kubernetes.docker.internal'
 $basepathGateway = ''
-#$basepathGateway = '/kunden'
+#$basepathGateway = '/fahrzeuge'
 $uri = "${schema}://${authority}${basepathGateway}/api/00000000-0000-0000-0000-000000000001"
 
 # hey ist in Go entwickelt

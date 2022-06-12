@@ -14,7 +14,7 @@
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 --  docker compose exec postgres bash
---  psql --dbname=kunde --username=kunde --file=/scripts/insert.sql
+--  psql --dbname=fahrzeug --username=fahrzeug --file=/scripts/insert.sql
 
 INSERT INTO login (id, username, password) VALUES ('30000000-0000-0000-0000-000000000000','admin','{argon2id}$argon2id$v=19$m=16384,t=3,p=1$iE4+NpU8xcjEu8z2YEtjYw$DbmfrGjL6ac04HGHQ0tdng6vxg3OG/A+GSY3WVUdbNU');
 INSERT INTO login (id, username, password) VALUES ('30000000-0000-0000-0000-000000000001','alpha','{argon2id}$argon2id$v=19$m=16384,t=3,p=1$iE4+NpU8xcjEu8z2YEtjYw$DbmfrGjL6ac04HGHQ0tdng6vxg3OG/A+GSY3WVUdbNU');

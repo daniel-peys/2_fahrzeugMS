@@ -17,12 +17,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kunde-v2
+  name: fahrzeug-v2
 spec:
   template:
     spec:
       containers:
-        - name: kunde
+        - name: fahrzeug
           readinessProbe:
             # Anzahl Sekunden, bis die Probe fuer Readiness abgesetzt wird
             initialDelaySeconds: 30

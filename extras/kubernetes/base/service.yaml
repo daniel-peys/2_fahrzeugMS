@@ -23,13 +23,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kunde
+  name: fahrzeug
   labels:
-    app: kunde
+    app: fahrzeug
 spec:
   # Default:   type: LoadBalancer
-  # Pods mit dem label "app: kunde" werden fuer eingehende Requests ausgewaehlt
+  # Pods mit dem label "app: fahrzeug" werden fuer eingehende Requests ausgewaehlt
   selector:
-    app: kunde
+    app: fahrzeug
   ports:
     - port: 8080

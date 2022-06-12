@@ -106,7 +106,7 @@ sealed interface UpdateResult {
     data class KennzeichenExists(val kennzeichen: String) : UpdateResult
 
     /**
-     * Resultat-Typ, wenn ein nicht-vorhandener Kunde aktualisiert werden sollte.
+     * Resultat-Typ, wenn ein nicht-vorhandener Fahrzeug aktualisiert werden sollte.
      */
     object NotFound : UpdateResult
 }

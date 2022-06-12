@@ -17,6 +17,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kunde
+  name: fahrzeug
 spec:
   replicas: 2

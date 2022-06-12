@@ -121,7 +121,7 @@ class FahrzeugWriteController(private val service: FahrzeugWriteService, @Lazy p
         return created(location).build()
     }
 
-    // z.B. Service-Funktion "create|update" mit Parameter "fahrzeug" hat dann Meldungen mit "create.kunde.nachname:"
+    // z.B. Service-Funktion "create|update" mit Parameter "fahrzeug" hat dann Meldungen mit "create.fahrzeug.kennzeichen:"
     private fun handleConstraintViolations(violations: Collection<ConstraintViolation>): ResponseEntity<GenericBody> {
         if (violations.isEmpty()) {
             return unprocessableEntity().build()

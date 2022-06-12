@@ -21,20 +21,20 @@ apiVersion: apps/v1
 kind: Deployment
 # Beschreibung des Deplyoments ("Metadaten")
 metadata:
-  name: kunde-v2
+  name: fahrzeug-v2
   # Kennzeichen bzw. Markierung
   labels:
-    app: kunde
+    app: fahrzeug
     version: 2.0.0
 spec:
   # https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#selector
   selector:
     # Label zur Identifikation des AKTUELLEN Deployments
-    # z.B. fuer:   kubectl delete deployment --selector app=kunde,version=2.0.0 --namespace acme
-    #              kubectl delete deployment/kunde-v2 --namespace acme
+    # z.B. fuer:   kubectl delete deployment --selector app=fahrzeug,version=2.0.0 --namespace acme
+    #              kubectl delete deployment/fahrzeug-v2 --namespace acme
     # gleicher Wert wie in template.metadata.labels
     matchLabels:
-      app: kunde
+      app: fahrzeug
       version: 2.0.0
   # Anzahl laufender Pods fuer das Template zu diesem Deployment (s.u.) -> ReplicaSet
   replicas: 1
@@ -44,24 +44,24 @@ spec:
     metadata:
       # Labels fuer einen laufenden Pod
       labels:
-        app: kunde
+        app: fahrzeug
         version: 2.0.0
     # Spezifikation des Pod
     spec:
-      serviceAccountName: acme-kunde
+      serviceAccountName: acme-fahrzeug
       containers:
         # https://kubernetes.io/docs/concepts/containers/images
-        - image: juergenzimmermann/kunde:2.0.0
-          #image: juergenzimmermann/kunde:2.0.0-jib
+        - image: juergenzimmermann/fahrzeug:2.0.0
+          #image: juergenzimmermann/fahrzeug:2.0.0-jib
           # default
           imagePullPolicy: IfNotPresent
-          name: kunde
+          name: fahrzeug
           # https://kubernetes.io/docs/tasks/inject-data-application/define-interdependent-environment-variables
           # https://opensource.com/article/19/6/introduction-kubernetes-secrets-and-configmaps
           envFrom:
             # https://kubernetes.io/docs/concepts/configuration/configmap
             - configMapRef:
-                name: kunde-env-v2
+                name: fahrzeug-env-v2
             # System-Properties fuer Jib, z.B. spring.profiles.active
             # https://github.com/GoogleContainerTools/jib/blob/master/docs/faq.md#jvm-flags
             # funktioniert jedoch nicht mit dem Gradle-Plugin von Spring Boot, deshalb ConfigMap mit Umgebungsvariablen
@@ -133,12 +133,12 @@ spec:
             #failureThreshold: 3
           volumeMounts:
             - mountPath: /tmp
-              name: log-kunde-v2
+              name: log-fahrzeug-v2
       volumes:
-        - name: log-kunde-v2
+        - name: log-fahrzeug-v2
           # https://kubernetes.io/docs/concepts/storage/volumes/#hostpath
           hostPath:
-            path: /run/desktop/mnt/host/c/Zimmermann/volumes/kunde-v2
+            path: /run/desktop/mnt/host/c/Zimmermann/volumes/fahrzeug-v2
             type: Directory
           # https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
           #emptyDir: {}

@@ -34,7 +34,7 @@ class QueryBuilder(private val factory: SessionFactory) {
     private val logger: Logger = LoggerFactory.getLogger(QueryBuilder::class.java)
 
     /**
-     * Aus einer `MultiValueMap` von _Spring_ wird eine Criteria Query für Hibernate gebaut, um flexibel nach Kunden
+     * Aus einer `MultiValueMap` von _Spring_ wird eine Criteria Query für Hibernate gebaut, um flexibel nach fahrzeugen
      * suchen zu können.
      * @param queryParams Die Query-Parameter in einer `MultiValueMap`.
      * @return [QueryBuilderResult] abhängig von den Query-Parametern.

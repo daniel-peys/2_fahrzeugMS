@@ -35,7 +35,7 @@ fun getBaseUri(headers: HttpHeaders, uri: URI, id: FahrzeugId? = null): String {
         // Forwarding durch Envoy von K8s
         // host: "localhost"
         // x-forwarded-proto: "http"
-        // x-envoy-decorator-operation: "fahrzeug.acme.svc.cluster.local:8080/kunden/*",
+        // x-envoy-decorator-operation: "fahrzeug.acme.svc.cluster.local:8080/fahrzeuge/*",
         // x-envoy-original-path: "/fahrzeuge/api/00000000-0000-0000-0000-000000000001"
         val host = headers.getFirst("Host")
         val forwardedProto = headers.getFirst("x-forwarded-proto")

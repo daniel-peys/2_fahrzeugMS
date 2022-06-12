@@ -17,12 +17,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kunde
+  name: fahrzeug
 spec:
   template:
     spec:
       containers:
-        - name: kunde
+        - name: fahrzeug
           resources:
             limits:
               memory: 768Mi

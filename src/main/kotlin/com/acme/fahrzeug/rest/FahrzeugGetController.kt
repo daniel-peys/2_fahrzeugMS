@@ -50,8 +50,6 @@ import java.security.Principal
 /**
  * Eine `@RestController`-Klasse bildet die REST-Schnittstelle, wobei die HTTP-Methoden, Pfade und MIME-Typen auf die
  * Funktionen der Klasse abgebildet werden
- *
- * ![Klassendiagramm](../../../images/KundeController.svg)
  * @constructor Einen FahrzeugGetController mit einem injizierten [FahrzeugReadService] erzeugen.
  */
 @RestController

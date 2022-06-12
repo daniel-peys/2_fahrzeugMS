@@ -165,9 +165,17 @@ class FahrzeugWriteService(
     }
 
     private suspend fun update(fahrzeug: Fahrzeug, fahrzeugDb: Fahrzeug): UpdateResult {
+        logger.trace("update: tttttttttttttttt = {}", fahrzeug)
         fahrzeugDb.set(fahrzeug)
 
-        logger.trace("update: vor session.merge() = {}", fahrzeugDb)
+        logger.trace("update: vor session.merge() = {}", fahrzeugDb.fahrzeughalter)
+        val _resultFahrzeugHalter = withTimeout(timeoutLong) {
+            factory.withTransaction { session, _ ->
+                session.detach(fahrzeugDb.fahrzeughalter)
+                session.merge(fahrzeugDb.fahrzeughalter)
+            }.awaitSuspending()
+        }
+
         val result = withTimeout(timeoutLong) {
             factory.withTransaction { session, _ ->
                 session.detach(fahrzeugDb)

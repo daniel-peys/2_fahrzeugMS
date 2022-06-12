@@ -165,6 +165,8 @@ class FahrzeugWriteService(
     }
 
     private suspend fun update(fahrzeug: Fahrzeug, fahrzeugDb: Fahrzeug): UpdateResult {
+        logger.trace("update: tttttttttttttttt = {}", fahrzeug)
+        //was geht hier schief?????
         fahrzeugDb.set(fahrzeug)
 
         logger.trace("update: vor session.merge() = {}", fahrzeugDb)

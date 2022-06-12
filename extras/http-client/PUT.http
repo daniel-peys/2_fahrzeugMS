@@ -19,7 +19,7 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Ein Fahrzeug mittels ungueltigem PUT aktualisieren 
+// Ein Fahrzeug mittels ungueltigem PUT aktualisieren
 PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
 If-Match: "0"
 Content-Type: application/json

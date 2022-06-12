@@ -110,8 +110,8 @@ data class Fahrzeug(
     var fahrzeugtyp: FahrzeugType? = null,
 
     @OneToOne(optional = false, cascade = [PERSIST, REMOVE])
-    @JoinColumn(updatable = false)
-    val fahrzeughalter: Fahrzeughalter,
+    @JoinColumn(updatable = true)
+    var fahrzeughalter: Fahrzeughalter,
 
     var username: String,
 
@@ -159,6 +159,7 @@ data class Fahrzeug(
         kilometerstand = neu.kilometerstand
         erstzulassung = neu.erstzulassung
         fahrzeugtyp = neu.fahrzeugtyp
+        fahrzeughalter = neu.fahrzeughalter
     }
 
     /**

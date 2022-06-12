@@ -23,6 +23,7 @@ import com.acme.fahrzeug.rest.FahrzeugGetController.Companion.API_PATH
 import com.acme.fahrzeug.rest.FahrzeugGetController.Companion.ID_PATTERN
 import com.acme.fahrzeug.rest.patch.FahrzeugPatcher
 import com.acme.fahrzeug.rest.patch.PatchOperation
+import com.acme.fahrzeug.security.CustomUser
 import com.acme.fahrzeug.service.CreateResult
 import com.acme.fahrzeug.service.FindByIdResult
 import com.acme.fahrzeug.service.FahrzeugReadService
@@ -88,7 +89,8 @@ class FahrzeugWriteController(private val service: FahrzeugWriteService, @Lazy p
         @RequestBody fahrzeugDTO: FahrzeugDTO,
         request: ServerHttpRequest,
     ): ResponseEntity<GenericBody> {
-        logger.debug("create: {}", fahrzeugUserDTO)
+        //logger.debug("create: {}", fahrzeugUserDTO)
+        logger.debug("create: {}", fahrzeugDTO)
 
         return when (
             val result =

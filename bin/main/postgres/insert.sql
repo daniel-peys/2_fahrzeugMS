@@ -35,23 +35,23 @@ INSERT INTO login_rollen (login_id, rolle) VALUES ('30000000-0000-0000-0000-0000
 INSERT INTO login_rollen (login_id, rolle) VALUES ('30000000-0000-0000-0000-000000000060','FAHRZEUG');
 
 INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000000','Hans','Peter');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000010','Hans','Peter');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000020','Hans','Peter');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000030','Hans','Peter');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000040','Hans','Peter');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000050','Hans','Peter');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000060','Hans','Peter');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000010','Frieder','Mueller');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000020','Jannis','Gustafsson');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000030','Abra','Kadabra');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000040','Simsala','Bim');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000050','Dreimal','Schwarzer');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000060','Kater','Klaus');
 
 -- admin
-INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000000',0,'Admin','KA N 0',0,'2021-01-31','A','20000000-0000-0000-0000-000000000000','admin','2021-01-31 00:00:00','2021-01-31 00:00:00');
+INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000000',0,'Admin','KA N 1',0,'2021-01-31','A','20000000-0000-0000-0000-000000000000','admin','2021-01-31 00:00:00','2021-01-31 00:00:00');
 -- HTTP GET
-INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000010',0,'Felali','KA N 1',1,'2021-01-01','P','20000000-0000-0000-0000-000000000010','alpha','2021-01-31 00:00:00','2021-01-31 00:00:00');
-INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000020',0,'Trekker','KA N 2',2,'2021-01-02','N','20000000-0000-0000-0000-000000000020','phi','2021-01-31 00:00:00','2021-01-31 00:00:00');
+INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000010',0,'Felali','KA N 2',1,'2021-01-01','P','20000000-0000-0000-0000-000000000010','alpha','2021-01-31 00:00:00','2021-01-31 00:00:00');
+INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000020',0,'Trekker','KA N 3',2,'2021-01-02','N','20000000-0000-0000-0000-000000000020','phi','2021-01-31 00:00:00','2021-01-31 00:00:00');
 -- HTTP PUT
-INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000030',0,'Pferdehenger','KA N 3',3,'2021-01-03','A','20000000-0000-0000-0000-000000000030','alpha2','2021-01-31 00:00:00','2021-01-31 00:00:00');
+INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000030',0,'Pferdehenger','KA N 4',3,'2021-01-03','A','20000000-0000-0000-0000-000000000030','alpha2','2021-01-31 00:00:00','2021-01-31 00:00:00');
 -- HTTP PATCH
-INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000040',0,'Popel','KA N 4',4,'2021-01-04','P','20000000-0000-0000-0000-000000000040','delta','2021-01-31 00:00:00','2021-01-31 00:00:00');
+INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000040',0,'Kopel','KA N 5',4,'2021-01-04','P','20000000-0000-0000-0000-000000000040','delta','2021-01-31 00:00:00','2021-01-31 00:00:00');
 -- HTTP DELETE
-INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000050',0,'Riesenhenger','KA N 5',5,'2021-01-05','A','20000000-0000-0000-0000-000000000050','delta','2021-01-31 00:00:00','2021-01-31 00:00:00');
+INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000050',0,'Riesenhenger','KA N 6',5,'2021-01-05','A','20000000-0000-0000-0000-000000000050','delta','2021-01-31 00:00:00','2021-01-31 00:00:00');
 -- zur freien Verfuegung
-INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000060',0,'Kran','KA N 6',6,'2021-01-06','N','20000000-0000-0000-0000-000000000060','delta','2021-01-31 00:00:00','2021-01-31 00:00:00');
+INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000060',0,'Kran','KA N 7',6,'2021-01-06','N','20000000-0000-0000-0000-000000000060','delta','2021-01-31 00:00:00','2021-01-31 00:00:00');

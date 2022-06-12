@@ -51,7 +51,7 @@ CREATE INDEX IF NOT EXISTS login_rollen_idx ON login_rollen(login_id) TABLESPACE
 
 CREATE TABLE IF NOT EXISTS fahrzeughalter (
     id    uuid PRIMARY KEY,
-    vorname   char(50) NOT NULL,
+    vorname   char(5) NOT NULL,
     nachname   varchar(40) NOT NULL
 ) TABLESPACE fahrzeugspace;
 

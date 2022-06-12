@@ -1,0 +1,11 @@
+{
+  "beschreibung": "Wildes Dings",
+  "kennzeichen": "KA B 99",
+  "kilometerstand": 444,
+  "erstzulassung": "2020-06-12",
+  "fahrzeugtype": "P",
+  "fahrzeughalter": {
+    "vorname": "Franz",
+    "nachname": "Peter"
+  }
+}

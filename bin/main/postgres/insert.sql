@@ -35,12 +35,12 @@ INSERT INTO login_rollen (login_id, rolle) VALUES ('30000000-0000-0000-0000-0000
 INSERT INTO login_rollen (login_id, rolle) VALUES ('30000000-0000-0000-0000-000000000060','FAHRZEUG');
 
 INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000000','Hans','Peter');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000010','Frieder','Mueller');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000020','Jannis','Gustafsson');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000030','Abra','Kadabra');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000040','Simsala','Bim');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000050','Dreimal','Schwarzer');
-INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000060','Kater','Klaus');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000010','Hans','Peter');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000020','Hans','Peter');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000030','Hans','Peter');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000040','Hans','Peter');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000050','Hans','Peter');
+INSERT INTO fahrzeughalter (id, vorname, nachname) VALUES ('20000000-0000-0000-0000-000000000060','Hans','Peter');
 
 -- admin
 INSERT INTO fahrzeug (id, version, beschreibung, kennzeichen, kilometerstand, erstzulassung, fahrzeugtyp, fahrzeughalter_id, username, erzeugt, aktualisiert) VALUES ('00000000-0000-0000-0000-000000000000',0,'Admin','KA N 0',0,'2021-01-31','A','20000000-0000-0000-0000-000000000000','admin','2021-01-31 00:00:00','2021-01-31 00:00:00');

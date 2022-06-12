@@ -8,6 +8,27 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
+
+// Ein Fahrzeug mittels PUT aktualisieren
+PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
+If-Match: "0"
+Content-Type: application/json
+Authorization: Basic {{userAdmin}} {{password}}
+
+< data/fahrzeug-put-webserver.json
+
+###
+
+// Ein Fahrzeug mittels ungueltigem PUT aktualisieren 
+PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
+If-Match: "0"
+Content-Type: application/json
+Authorization: Basic {{userAdmin}} {{password}}
+
+< data/fahrzeug-put-webserver-invalid.json
+
+###
+
 // Einen Kunden mittels PUT und ungueltigen Daten aktualisieren
 PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
 If-Match: "0"

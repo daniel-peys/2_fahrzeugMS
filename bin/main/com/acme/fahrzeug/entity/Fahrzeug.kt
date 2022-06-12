@@ -132,21 +132,21 @@ data class Fahrzeug(
      * https://thorben-janssen.com/ultimate-guide-to-implementing-equals-and-hashcode-with-hibernate
      *
      * @param other Das zu vergleichende Objekt oder null
-     * @return True, falls das zu vergleichende (Fahrzeug-) Objekt das gleiche Kennzeichen hat.
+     * @return True, falls das zu vergleichende (Fahrzeug-) Objekt die gleiche ID hat.
      */
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
         other as Fahrzeug
-        return kennzeichen != null && kennzeichen == other.kennzeichen
+        return id != null && id == other.id
     }
 
     /**
-     * Hashwert aufgrund des Kennzeichen.
+     * Hashwert aufgrund der ID.
      * @return Der Hashwert.
      */
-    override fun hashCode() = kennzeichen?.hashCode() ?: this::class.hashCode()
+    override fun hashCode() = id?.hashCode() ?: this::class.hashCode()
 
     /**
      * Properties überschreiben, z.B. bei PUT-Requests von der REST-Schnittstelle

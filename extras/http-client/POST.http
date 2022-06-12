@@ -6,6 +6,14 @@ Content-Type: application/json
 
 ###
 
+// Ein neues Fahrzeug anlegen
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+< data/fahrzeug-neu-webserver.json
+
+###
+
 // Einen neuen Kunden mit ungueltigen Daten versuchen anzulegen
 POST {{baseUrl}}/api
 Content-Type: application/json

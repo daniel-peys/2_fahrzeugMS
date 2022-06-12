@@ -57,8 +57,9 @@ class FahrzeugWriteService(
      * @return Der neu angelegte Fahrzeug mit generierter ID.
      */
     @Suppress("ReturnCount")
-    suspend fun create(fahrzeug: Fahrzeug): CreateResult {  //, user: CustomUser
+    suspend fun create(fahrzeug: Fahrzeug): CreateResult {  // , user: CustomUser
         logger.debug("create: {}", fahrzeug)
+        //logger.debug("create: {}", user)
         val violations = validator.validate(fahrzeug)
         if (violations.isNotEmpty()) {
             return CreateResult.ConstraintViolations(violations)
@@ -70,10 +71,6 @@ class FahrzeugWriteService(
             return CreateResult.KennzeichenExists(kennzeichen)
         }
         logger.trace("create: Kennzeichen noch nicht vorhanden")
-
-        val username = generateUsername(fahrzeug)
-        val user = CustomUser(username, "Pass1234")
-        logger.debug("create: {}", user)
 
         val login: Login
         when (val result = userService.convertLogin(user)) {
@@ -117,9 +114,6 @@ class FahrzeugWriteService(
         }
             .awaitSuspending()
     }
-
-    private suspend fun generateUsername(fahrzeug: Fahrzeug) = (fahrzeug.hashCode().toString()).lowercase()
-
 
     /**
      * Ein vorhandenes Fahrzeug aktualisieren.

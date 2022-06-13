@@ -18,6 +18,7 @@ package com.acme.fahrzeug.rest
 
 import am.ik.yavi.core.ConstraintViolation
 import com.acme.fahrzeug.entity.Fahrzeug
+import com.acme.fahrzeug.entity.FahrzeugId
 import com.acme.fahrzeug.rest.FahrzeugGetController.Companion.API_PATH
 import com.acme.fahrzeug.rest.FahrzeugGetController.Companion.ID_PATTERN
 import com.acme.fahrzeug.rest.patch.FahrzeugPatcher

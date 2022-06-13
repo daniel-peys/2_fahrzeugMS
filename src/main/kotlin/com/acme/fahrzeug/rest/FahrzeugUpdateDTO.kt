@@ -1,19 +1,19 @@
 package com.acme.fahrzeug.rest
 
 import com.acme.fahrzeug.entity.Fahrzeug
-import com.acme.fahrzeug.entity.Fahrzeughalter
 import com.acme.fahrzeug.entity.FahrzeugType
+import com.acme.fahrzeug.entity.Fahrzeughalter
 import java.time.LocalDate
 
 /**
- * ValueObject für das Ändern eines neuen Fahrzeuges. Beim Lesen wird die Klasse [FahrzeugModel] für die Ausgabe verwendet
- * und für das Neuanlegen die Klasse [FahrzeugUserDTO].
+ * ValueObject für das Ändern eines neuen Fahrzeuges. Beim Lesen wird die Klasse [FahrzeugModel] für die
+ * Ausgabe verwendet und für das Neuanlegen die Klasse [FahrzeugUserDTO].
  * @property beschreibung Gültiger Beschreibung eines Fahrzeuges, d.h. mit einem geeigneten Muster.
  * @property kennzeichen Kennzeichen eines Fahrzeuges
  * @property kilometerstand Kilometerstand eines Fahrzeuges mit eingeschränkten Werten.
  * @property erstzulassung Die Erstzulassung eines Fahrzeuges
  * @property fahrzeugtype Der Fahrzeugtyp eines Fahrzeuges
- * @property fdahrzeughalter Der Fahrzeughalter eines Fahrzeuges
+ * @property fahrzeughalter Der Fahrzeughalter eines Fahrzeuges
  */
 data class FahrzeugUpdateDTO(
     val beschreibung: String,
@@ -26,8 +26,8 @@ data class FahrzeugUpdateDTO(
 
     val fahrzeugtype: FahrzeugType?,
 
-    val fahrzeughalter: Fahrzeughalter
-    ) {
+    val fahrzeughalter: Fahrzeughalter,
+) {
     /**
      * Konvertierung in ein Objekt des Anwendungskerns
      * @return Fahrzeugbjekt für den Anwendungskern

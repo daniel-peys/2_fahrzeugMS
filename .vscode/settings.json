@@ -13,7 +13,7 @@
       "userKunde": "alpha",
       "password": "p",
       "passwordFalsch": "FALSCH"
-    },
+    }
   },
   "liveServer.settings.port": 5501
 }

@@ -20,8 +20,6 @@ import am.ik.yavi.builder.validator
 import am.ik.yavi.core.ViolationMessage
 import com.acme.fahrzeug.entity.Fahrzeug
 import org.springframework.stereotype.Service
-import java.time.LocalDate.now
-import java.time.ZoneId
 
 /**
  * Validierung von Objekten der Klasse [Fahrzeug].
@@ -39,13 +37,14 @@ class FahrzeugValidator(fahrzeughalterValidator: FahrzeughalterValidator) {
                         "fahrzeug.beschreibung.lessThanOrEqual",
                         "A beschreibung can be a maximum of 40 characters long.",
                     ),
-                )/*
-                .pattern(BESCHREIBUNG_PATTERN).message(
-                    ViolationMessage.of(
-                        "fahrzeug.beschreibung.pattern",
-                        "After a capital letter at least one lowercase letter is required.",
-                    ),
-                )*/
+                )
+            /*
+                    .pattern(BESCHREIBUNG_PATTERN).message(
+                        ViolationMessage.of(
+                            "fahrzeug.beschreibung.pattern",
+                            "After a capital letter at least one lowercase letter is required.",
+                        ),
+                    )*/
         }
 
         @Suppress("MagicNumber")
@@ -111,8 +110,8 @@ class FahrzeugValidator(fahrzeughalterValidator: FahrzeughalterValidator) {
         /**
          * Muster für einen gültige Beschreibung
          */
-        //TODO pattern anpassen
-        //const val BESCHREIBUNG_PATTERN = "[A-ZÄÖÜ][a-zäöüß]+"
+        // TODO pattern anpassen
+        // const val BESCHREIBUNG_PATTERN = "[A-ZÄÖÜ][a-zäöüß]+"
 
         /**
          * Muster für einen gültige Beschreibung
@@ -127,7 +126,7 @@ class FahrzeugValidator(fahrzeughalterValidator: FahrzeughalterValidator) {
         /**
          * Maximaler Wert für eine Kategorie.
          */
-        const val MAX_KILOMETERSTAND = 9999999
+        const val MAX_KILOMETERSTAND = 9_999_999
 
         /**
          * Mitteleuropäische Zeitzone

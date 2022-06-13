@@ -146,7 +146,7 @@ data class Fahrzeug(
      * Hashwert aufgrund des Kennzeichen.
      * @return Der Hashwert.
      */
-    override fun hashCode() = kennzeichen?.hashCode() ?: this::class.hashCode()
+    override fun hashCode() = kennzeichen.hashCode()
 
     /**
      * Properties überschreiben, z.B. bei PUT-Requests von der REST-Schnittstelle

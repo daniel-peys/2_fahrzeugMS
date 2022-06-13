@@ -23,11 +23,10 @@ import com.acme.fahrzeug.rest.FahrzeugGetController.Companion.API_PATH
 import com.acme.fahrzeug.rest.FahrzeugGetController.Companion.ID_PATTERN
 import com.acme.fahrzeug.rest.patch.FahrzeugPatcher
 import com.acme.fahrzeug.rest.patch.PatchOperation
-import com.acme.fahrzeug.security.CustomUser
 import com.acme.fahrzeug.service.CreateResult
-import com.acme.fahrzeug.service.FindByIdResult
 import com.acme.fahrzeug.service.FahrzeugReadService
 import com.acme.fahrzeug.service.FahrzeugWriteService
+import com.acme.fahrzeug.service.FindByIdResult
 import com.acme.fahrzeug.service.UpdateResult
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -68,12 +67,15 @@ import java.security.Principal
 @RequestMapping(API_PATH)
 @Tag(name = "Fahrzeug API")
 @Suppress("TooManyFunctions", "LargeClass", "RegExpUnexpectedAnchor")
-class FahrzeugWriteController(private val service: FahrzeugWriteService, @Lazy private val readService: FahrzeugReadService) {
+class FahrzeugWriteController(
+    private val service: FahrzeugWriteService,
+    @Lazy private val readService: FahrzeugReadService,
+) {
     private val logger = LoggerFactory.getLogger(FahrzeugWriteController::class.java)
 
+    // @param fahrzeugUserDTO Das Fahrzeugnobjekt mit den Benutzerdaten aus dem eingegangenen Request-Body.
     /**
      * Einen neuen Fahrzeug-Datensatz anlegen.
-     * @param fahrzeugUserDTO Das Fahrzeugnobjekt mit den Benutzerdaten aus dem eingegangenen Request-Body.
      * @param request Das Request-Objekt, um `Location` im Response-Header zu erstellen.
      * @return Response mit Statuscode 201 einschließlich Location-Header oder Statuscode 422 falls Constraints verletzt
      *      sind oder der JSON-Datensatz syntaktisch nicht korrekt ist oder falls die Emailadresse bereits existiert.
@@ -85,16 +87,16 @@ class FahrzeugWriteController(private val service: FahrzeugWriteService, @Lazy p
         ApiResponse(responseCode = "422", description = "Ungültige Werte oder Kennzeichen/Username vorhanden"),
     )
     suspend fun create(
-        //@RequestBody fahrzeugUserDTO: FahrzeugUserDTO,
+        // @RequestBody fahrzeugUserDTO: FahrzeugUserDTO,
         @RequestBody fahrzeugDTO: FahrzeugDTO,
         request: ServerHttpRequest,
     ): ResponseEntity<GenericBody> {
-        //logger.debug("create: {}", fahrzeugUserDTO)
+        // logger.debug("create: {}", fahrzeugUserDTO)
         logger.debug("create: {}", fahrzeugDTO)
 
         return when (
             val result =
-                //service.create(fahrzeugUserDTO.fahrzeugDTO.toFahrzeug(), fahrzeugUserDTO.userDTO.toCustomUser())
+                // service.create(fahrzeugUserDTO.fahrzeugDTO.toFahrzeug(), fahrzeugUserDTO.userDTO.toCustomUser())
                 service.create(fahrzeugDTO.toFahrzeug())
         ) {
             is CreateResult.Success -> handleCreateSuccess(result.fahrzeug, request)
@@ -121,7 +123,7 @@ class FahrzeugWriteController(private val service: FahrzeugWriteService, @Lazy p
         return created(location).build()
     }
 
-    // z.B. Service-Funktion "create|update" mit Parameter "fahrzeug" hat dann Meldungen mit "create.fahrzeug.kennzeichen:"
+    // z.B. Service-Funktion "create|update" mit Param "fahrzeug" hat dann Meldungen mit "create.fahrzeug.kennzeichen:"
     private fun handleConstraintViolations(violations: Collection<ConstraintViolation>): ResponseEntity<GenericBody> {
         if (violations.isEmpty()) {
             return unprocessableEntity().build()

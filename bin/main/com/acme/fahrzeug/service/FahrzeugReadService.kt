@@ -48,6 +48,12 @@ class FahrzeugReadService(
             return FindByIdResult.Success(fahrzeug)
         }
 
+        logger.debug("findById: fahrzeug", fahrzeug)
+
+        if (fahrzeug == null) {
+            return FindByIdResult.NotFound(id)
+        }
+
         // es muss ein Objekt der Klasse UserDetails geben, weil der Benutzername beim Einloggen verwendet wurde
         val userDetails =
             userService.findByUsername(username).awaitSingleOrNull() ?: return FindByIdResult.AccessForbidden()
@@ -57,8 +63,6 @@ class FahrzeugReadService(
 
         return if (!rollen.contains(Rolle.adminStr)) {
             FindByIdResult.AccessForbidden(rollen)
-        } else if (fahrzeug == null) {
-            FindByIdResult.NotFound(id)
         } else {
             FindByIdResult.Success(fahrzeug)
         }

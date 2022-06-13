@@ -36,21 +36,23 @@ class FahrzeughalterValidator {
             notEmpty().message(
                 ViolationMessage.of("fahrzeughalter.vorname.notEmpty", "Vorname is required."),
             )
-                /*.pattern(Name_PATTERN).message(
-                    ViolationMessage.of("fahrzeughalter.vorname.pattern", "Vorname invalid"),
-                )*/
+            /*.pattern(Name_PATTERN).message(
+                ViolationMessage.of("fahrzeughalter.vorname.pattern", "Vorname invalid"),
+            )*/
         }
 
         @Suppress("MagicNumber")
         Fahrzeughalter::nachname {
-                notEmpty().message(
-                    ViolationMessage.of("fahrzeughalter.nachname.notEmpty", "Nachname is required."),
-                )/*
-                    .pattern(Name_PATTERN).message(
-                        ViolationMessage.of("fahrzeughalter.nachname.pattern", "Nachname invalid"),
-                    )*/
+            notEmpty().message(
+                ViolationMessage.of("fahrzeughalter.nachname.notEmpty", "Nachname is required."),
+            )
+            /*
+                        .pattern(Name_PATTERN).message(
+                            ViolationMessage.of("fahrzeughalter.nachname.pattern", "Nachname invalid"),
+                        )*/
         }
     }
+
     /**
      * Konstante für die Validierung eines Fahgrzeughalters
      */
@@ -58,7 +60,7 @@ class FahrzeughalterValidator {
         /**
          * Konstante für den regulären Ausdruck eins Fahrzeughalters
          */
-        //ToDO Validierung anpassen
-        //const val Name_PATTERN = "[A-ZÄÖÜ][a-zäöüß]+"
+        // ToDO Validierung anpassen
+        // const val Name_PATTERN = "[A-ZÄÖÜ][a-zäöüß]+"
     }
 }

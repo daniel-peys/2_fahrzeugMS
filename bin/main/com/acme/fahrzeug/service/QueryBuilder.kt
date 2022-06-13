@@ -1,8 +1,8 @@
 package com.acme.fahrzeug.service
 
 import com.acme.fahrzeug.entity.Fahrzeug
-import com.acme.fahrzeug.entity.Fahrzeughalter
 import com.acme.fahrzeug.entity.FahrzeugType
+import com.acme.fahrzeug.entity.Fahrzeughalter
 import org.hibernate.reactive.mutiny.Mutiny.SessionFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -91,19 +91,35 @@ class QueryBuilder(private val factory: SessionFactory) {
     }
 
     // Nachname: Suche nach Teilstrings
-    private fun getPredicateBeschreibung(neschreibung: String, criteriaBuilder: CriteriaBuilder, fahrzeugRoot: Root<Fahrzeug>) =
+    private fun getPredicateBeschreibung(
+        neschreibung: String,
+        criteriaBuilder: CriteriaBuilder,
+        fahrzeugRoot: Root<Fahrzeug>,
+    ) =
         criteriaBuilder.like(fahrzeugRoot.get(Fahrzeug::beschreibung), "%$neschreibung%")
 
     // Email: Suche mit Teilstring ohne Gross-/Kleinschreibung
-    private fun getPredicateKennzeichen(kennzeichen: String, criteriaBuilder: CriteriaBuilder, fahrzeugRoot: Root<Fahrzeug>) =
+    private fun getPredicateKennzeichen(
+        kennzeichen: String,
+        criteriaBuilder: CriteriaBuilder,
+        fahrzeugRoot: Root<Fahrzeug>,
+    ) =
         criteriaBuilder.like(fahrzeugRoot.get(Fahrzeug::kennzeichen), "%$kennzeichen%")
 
     // PLZ: Suche mit Praefix
-    private fun getPredicateFahrzeughalterVorname(vorname: String, criteriaBuilder: CriteriaBuilder, fahrzeugRoot: Root<Fahrzeug>) =
+    private fun getPredicateFahrzeughalterVorname(
+        vorname: String,
+        criteriaBuilder: CriteriaBuilder,
+        fahrzeugRoot: Root<Fahrzeug>,
+    ) =
         criteriaBuilder.like(fahrzeugRoot.get(Fahrzeug::fahrzeughalter).get(Fahrzeughalter::vorname), "$vorname%")
 
     // Ort: Suche mit Praefix
-    private fun getPredicateFahrzeughalterNachname(nachname: String, criteriaBuilder: CriteriaBuilder, fahrzeugRoot: Root<Fahrzeug>) =
+    private fun getPredicateFahrzeughalterNachname(
+        nachname: String,
+        criteriaBuilder: CriteriaBuilder,
+        fahrzeugRoot: Root<Fahrzeug>,
+    ) =
         criteriaBuilder.like(fahrzeugRoot.get(Fahrzeug::fahrzeughalter).get(Fahrzeughalter::nachname), "$nachname%")
 
     private fun getPredicateFahrzeugtype(

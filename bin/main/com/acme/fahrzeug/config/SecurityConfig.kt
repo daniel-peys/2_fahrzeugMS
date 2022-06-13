@@ -43,7 +43,10 @@ interface SecurityConfig {
 
             authorize(pathMatchers(POST, API_PATH), permitAll)
             authorize(pathMatchers(GET, API_PATH), hasRole(admin))
-            authorize(pathMatchers(GET, "$API_PATH$AUTH_PATH/rollen", "$API_PATH$BESCHREIBUNGEN_PATH/*"), hasRole(fahrzeug))
+            authorize(
+                pathMatchers(GET, "$API_PATH$AUTH_PATH/rollen", "$API_PATH$BESCHREIBUNGEN_PATH/*"),
+                hasRole(fahrzeug),
+            )
             authorize(pathMatchers(GET, fahrzeugIdPath), hasAnyRole(admin, fahrzeug))
             authorize(pathMatchers(fahrzeugIdPath), hasRole(admin))
             authorize(pathMatchers(POST, "$API_PATH$AUTH_PATH/login"), permitAll)

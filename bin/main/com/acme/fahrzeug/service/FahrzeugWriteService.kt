@@ -55,7 +55,7 @@ class FahrzeugWriteService(
      * @return Der neu angelegte Fahrzeug mit generierter ID.
      */
     @Suppress("ReturnCount")
-    suspend fun create(fahrzeug: Fahrzeug): CreateResult {  //, user: CustomUser
+    suspend fun create(fahrzeug: Fahrzeug): CreateResult { // , user: CustomUser
         logger.debug("create: {}", fahrzeug)
         val violations = validator.validate(fahrzeug)
         if (violations.isNotEmpty()) {
@@ -116,8 +116,7 @@ class FahrzeugWriteService(
             .awaitSuspending()
     }
 
-    private suspend fun generateUsername(fahrzeug: Fahrzeug) = (fahrzeug.hashCode().toString()).lowercase()
-
+    private suspend fun generateUsername(fahrzeug: Fahrzeug) = fahrzeug.hashCode().toString().lowercase()
 
     /**
      * Ein vorhandenes Fahrzeug aktualisieren.
@@ -166,10 +165,17 @@ class FahrzeugWriteService(
 
     private suspend fun update(fahrzeug: Fahrzeug, fahrzeugDb: Fahrzeug): UpdateResult {
         logger.trace("update: tttttttttttttttt = {}", fahrzeug)
-        //was geht hier schief?????
         fahrzeugDb.set(fahrzeug)
 
-        logger.trace("update: vor session.merge() = {}", fahrzeugDb)
+        logger.trace("update: vor session.merge() = {}", fahrzeugDb.fahrzeughalter)
+        @Suppress("VariableNaming", "UnusedPrivateMember")
+        val _resultFahrzeugHalter = withTimeout(timeoutLong) {
+            factory.withTransaction { session, _ ->
+                session.detach(fahrzeugDb.fahrzeughalter)
+                session.merge(fahrzeugDb.fahrzeughalter)
+            }.awaitSuspending()
+        }
+
         val result = withTimeout(timeoutLong) {
             factory.withTransaction { session, _ ->
                 session.detach(fahrzeugDb)

@@ -110,8 +110,8 @@ data class Fahrzeug(
     var fahrzeugtyp: FahrzeugType? = null,
 
     @OneToOne(optional = false, cascade = [PERSIST, REMOVE])
-    @JoinColumn(updatable = false)
-    val fahrzeughalter: Fahrzeughalter,
+    @JoinColumn(updatable = true)
+    var fahrzeughalter: Fahrzeughalter,
 
     var username: String,
 
@@ -146,7 +146,7 @@ data class Fahrzeug(
      * Hashwert aufgrund des Kennzeichen.
      * @return Der Hashwert.
      */
-    override fun hashCode() = kennzeichen?.hashCode() ?: this::class.hashCode()
+    override fun hashCode() = kennzeichen.hashCode()
 
     /**
      * Properties überschreiben, z.B. bei PUT-Requests von der REST-Schnittstelle
@@ -159,6 +159,7 @@ data class Fahrzeug(
         kilometerstand = neu.kilometerstand
         erstzulassung = neu.erstzulassung
         fahrzeugtyp = neu.fahrzeugtyp
+        fahrzeughalter = neu.fahrzeughalter
     }
 
     /**

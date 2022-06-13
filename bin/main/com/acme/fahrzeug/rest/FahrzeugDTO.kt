@@ -17,13 +17,13 @@
 package com.acme.fahrzeug.rest
 
 import com.acme.fahrzeug.entity.Fahrzeug
-import com.acme.fahrzeug.entity.Fahrzeughalter
 import com.acme.fahrzeug.entity.FahrzeugType
+import com.acme.fahrzeug.entity.Fahrzeughalter
 import java.time.LocalDate
 
 /**
- * ValueObject für das Ändern eines neuen Fahrzeuges. Beim Lesen wird die Klasse [FahrzeugModel] für die Ausgabe verwendet
- * und für das Neuanlegen die Klasse [FahrzeugUserDTO].
+ * ValueObject für das Ändern eines neuen Fahrzeuges. Beim Lesen wird die Klasse [FahrzeugModel]
+ * für die Ausgabe verwendet und für das Neuanlegen die Klasse [FahrzeugUserDTO].
  *
  * @property beschreibung Gültiger Beshcreibung eines Fahrzeug, d.h. mit einem geeigneten Muster.
  * @property kennzeichen Kennzeichen eines Fahrzeuges.

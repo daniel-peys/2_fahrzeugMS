@@ -17,16 +17,16 @@
 package com.acme.fahrzeug.rest
 
 import com.acme.fahrzeug.entity.Fahrzeug
-import com.acme.fahrzeug.entity.Fahrzeughalter
 import com.acme.fahrzeug.entity.FahrzeugType
+import com.acme.fahrzeug.entity.Fahrzeughalter
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import org.springframework.hateoas.RepresentationModel
 import org.springframework.hateoas.server.core.Relation
 import java.time.LocalDate
 
 /**
- * Unveränderliche Daten eines Fahrzeuges an der REST-Schnittstelle ohne die Benutzerdaten. Diese Daten werden beim Lesen
- * angezeigt und können überschrieben werden.
+ * Unveränderliche Daten eines Fahrzeuges an der REST-Schnittstelle ohne die Benutzerdaten.
+ * Diese Daten werden beim Lesen angezeigt und können überschrieben werden.
  *
  * @property beschreibung Gültige Beschreibung eines Fahrzeuges, d.h. mit einem geeigneten Muster.
  * @property kennzeichen Kennzeichen eines Fahrzeuges

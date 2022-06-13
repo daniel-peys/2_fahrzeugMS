@@ -1,26 +1,10 @@
-/*
- * Copyright (C) 2017 - present Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
 package com.acme.fahrzeug.rest
 
 import com.acme.fahrzeug.entity.Fahrzeug
 import com.acme.fahrzeug.entity.FahrzeugId
 import com.acme.fahrzeug.rest.FahrzeugGetController.Companion.API_PATH
-import com.acme.fahrzeug.service.FindByIdResult
 import com.acme.fahrzeug.service.FahrzeugReadService
+import com.acme.fahrzeug.service.FindByIdResult
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
@@ -85,7 +69,7 @@ class FahrzeugGetController(private val service: FahrzeugReadService) {
         principal: Principal?,
     ): ResponseEntity<Any> {
         logger.trace("findById: id={}, version={}", id, version)
-        val username = principal?.name ?: "gast"; //return status(FORBIDDEN).build()
+        val username = principal?.name ?: "gast" // return status(FORBIDDEN).build()
 
         return when (val result = service.findById(id, username)) {
             is FindByIdResult.Success -> handleFound(result.fahrzeug, version, request)
@@ -128,7 +112,8 @@ class FahrzeugGetController(private val service: FahrzeugReadService) {
      * Suche mit diversen Suchkriterien als Query-Parameter.
      * @param queryParams Query-Parameter als MultiValueMap für z.B. /api?beschreibung=L.
      * @param request Das Request-Objekt, um Links für HATEOAS zu erstellen.
-     * @return Ein Response mit dem Statuscode 200 und den gefundenen Fahrzeugen als CollectionModel oder Statuscode 404.
+     * @return Ein Response mit dem Statuscode 200 und den gefundenen Fahrzeugen als CollectionModel
+     * oder Statuscode 404.
      */
     @GetMapping(produces = [HAL_JSON_VALUE])
     @Operation(summary = "Suche mit Suchkriterien", tags = ["Suchen"])

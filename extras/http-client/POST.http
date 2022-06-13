@@ -1,11 +1,3 @@
-// Einen neuen Kunden anlegen
-POST {{baseUrl}}/api
-Content-Type: application/json
-
-< data/fahrzeug-neu.json
-
-###
-
 // Ein neues Fahrzeug anlegen
 POST {{baseUrl}}/api
 Content-Type: application/json
@@ -14,7 +6,7 @@ Content-Type: application/json
 
 ###
 
-// Einen neuen Kunden mit ungueltigen Daten versuchen anzulegen
+// Einen neuen Fahrzeug mit ungueltigen Daten versuchen anzulegen
 POST {{baseUrl}}/api
 Content-Type: application/json
 
@@ -22,7 +14,7 @@ Content-Type: application/json
 
 ###
 
-// Einen neuen Kunden mit ungueltigem Passwort versuchen anzulegen
+// Einen neuen Fahrzeug mit ungueltigem Passwort versuchen anzulegen
 POST {{baseUrl}}/api
 Content-Type: application/json
 

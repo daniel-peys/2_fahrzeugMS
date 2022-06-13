@@ -1,14 +1,3 @@
-// Einen Kunden mittels PUT aktualisieren
-PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
-If-Match: "0"
-Content-Type: application/json
-Authorization: Basic {{userAdmin}} {{password}}
-
-< data/fahrzeug-30-put.json
-
-###
-
-
 // Ein Fahrzeug mittels PUT aktualisieren
 PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
 If-Match: "0"
@@ -29,7 +18,7 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Einen Kunden mittels PUT und ungueltigen Daten aktualisieren
+// Einen Fahrzeug mittels PUT und ungueltigen Daten aktualisieren
 PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
 If-Match: "0"
 Content-Type: application/json
@@ -39,7 +28,7 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Einen Kunden mittels PUT ohne Versionsnummer aktualisieren
+// Ein Fahrzeug mittels PUT ohne Versionsnummer aktualisieren
 PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
 Content-Type: application/json
 Authorization: Basic {{userAdmin}} {{password}}
@@ -48,7 +37,7 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Einen Kunden mittels PUT mit alter Versionsnummer aktualisieren
+// Ein Fahrzeug mittels PUT mit alter Versionsnummer aktualisieren
 PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
 If-Match: "-1"
 Content-Type: application/json
@@ -58,7 +47,7 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Einen Kunden mittels PUT und falschem Passwort aktualisieren: 401 (Unauthorized)
+// Ein Fahrzeug mittels PUT und falschem Passwort aktualisieren: 401 (Unauthorized)
 PUT {{baseUrl}}/api/00000000-0000-0000-0000-000000000030
 If-Match: "0"
 Content-Type: application/json

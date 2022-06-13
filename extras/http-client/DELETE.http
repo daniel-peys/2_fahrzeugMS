@@ -1,21 +1,21 @@
-// Löschen mit vorhandener Kunde-ID
+// Löschen mit vorhandener Fahrzeug-ID
 DELETE {{baseUrl}}/api/00000000-0000-0000-0000-000000000040
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Löschen mit nicht-vorhandener Kunde-ID
+// Löschen mit nicht-vorhandener Fahrzeug-ID
 DELETE {{baseUrl}}/api/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Löschen mit vorhandener Kunde-ID und falschem Passwort: 401 (Unauthorized)
+// Löschen mit vorhandener Fahrzeug-ID und falschem Passwort: 401 (Unauthorized)
 DELETE {{baseUrl}}/api/00000000-0000-0000-0000-000000000040
 Authorization: Basic {{userAdmin}} {{passwordFalsch}}
 
 ###
 
-// Löschen mit vorhandener Kunde-ID und fehlenden Rechten: 403 (Forbidden)
+// Löschen mit vorhandener Fahrzeug-ID und fehlenden Rechten: 403 (Forbidden)
 DELETE {{baseUrl}}/api/00000000-0000-0000-0000-000000000040
 Authorization: Basic {{userKunde}} {{passwordFalsch}}

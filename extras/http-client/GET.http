@@ -1,29 +1,29 @@
-// Suche alle Kunden
+// Suche alle Fahrzeuge
 GET {{baseUrl}}/api
 Accept: application/hal+json
 Authorization: Basic admin p
 
 ###
 
-// Suche alle Kunden
+// Suche alle Fahrzeuge
 GET {{baseUrl}}/api
 Accept: application/hal+json
 
 ###
 
-// Suche alle Kunden mit falschem Passwort: 401 (Unauthorized)
+// Suche alle Fahrzeuge mit falschem Passwort: 401 (Unauthorized)
 GET {{baseUrl}}/api
 Authorization: Basic {{userAdmin}} {{passwordFalsch}}
 
 ###
 
-// Suche alle Kunden mit fehlenden Rechten: 403 (Forbidden)
+// Suche alle Fahrzeuge mit fehlenden Rechten: 403 (Forbidden)
 GET {{baseUrl}}/api
 Authorization: Basic {{userKunde}} {{password}}
 
 ###
 
-// Suche mit vorhandener Kunde-ID als admin
+// Suche mit vorhandener Fahrzeug-ID als admin
 //curl --verbose --basic --user admin:p --header "Accept: application/hal+json" --insecure http://kubernetes.docker.internal/kunden/api/00000000-0000-0000-0000-000000000001
 //curl --verbose --basic --user admin:p --header "Accept: application/hal+json" --http2 --tlsv1.3 --insecure https://kubernetes.docker.internal/kunden/api/00000000-0000-0000-0000-000000000001
 GET {{baseUrl}}/api/00000000-0000-0000-0000-000000000000
@@ -38,14 +38,14 @@ Accept: application/hal+json
 
 ###
 
-// Suche mit ungueltiger Kunde-ID
+// Suche mit ungueltiger Fahrzeug-ID
 GET {{baseUrl}}/api/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit nicht-vorhandener Kunde-ID
+// Suche mit nicht-vorhandener Fahrzeug-ID
 GET {{baseUrl}}/api/99999999-9999-9999-9999-999999999999
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
@@ -59,7 +59,7 @@ Authorization: Basic Basic {{userAdmin}} {{passwordFalsch}}
 
 ###
 
-// Suche mit vorhandener Kunde-ID als kunde
+// Suche mit vorhandener Fahrzeug-ID als kunde
 GET {{baseUrl}}/api/00000000-0000-0000-0000-000000000000
 Accept: application/hal+json
 Authorization: Basic {{userKunde}} {{password}}
@@ -73,7 +73,7 @@ Authorization: Basic {{userKunde}} {{password}}
 
 ###
 
-// Suche mit vorhandener Kunde-ID und ETag
+// Suche mit vorhandener Fahrzeug-ID und ETag
 GET {{baseUrl}}/api/00000000-0000-0000-0000-000000000001
 Accept: application/hal+json
 If-None-Match: "0"
@@ -81,7 +81,7 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit vorhandener Kunde-ID und falschem ETag: 406 (Not Acceptable)
+// Suche mit vorhandener Fahrzeug-ID und falschem ETag: 406 (Not Acceptable)
 GET {{baseUrl}}/api/00000000-0000-0000-0000-000000000001
 Accept: application/hal+json
 If-None-Match: 0
@@ -89,63 +89,63 @@ Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit Teilstring fuer vorhandene Nachnamen
+// Suche mit Teilstring fuer vorhandener beschreibung
 GET {{baseUrl}}/api?beschreibung=i
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit vorhandenem Nachnamen
+// Suche mit vorhandener beschreibung
 GET {{baseUrl}}/api?beschreibung=Admin
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit vorhandener Email
+// Suche mit vorhandenem kennzeichen
 GET {{baseUrl}}/api?kennzeichen=KA N 0
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit nicht-vorhandener Email
+// Suche mit nicht-vorhandenem kennzeichen
 GET {{baseUrl}}/api?kennzeichen=NICHT%40VORHAN.DEN
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit vorhandenem (Teil-) Nachnamen und PLZ
+// Suche mit vorhandenem (Teil-) Beschreibung und Nachname
 GET {{baseUrl}}/api?beschreibung=a&vorname=H
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit vorhandenem (Teil-) Nachnamen und Ort
+// Suche mit vorhandenem (Teil-) Beschreibung und Nachname
 GET {{baseUrl}}/api?beschreibung=a&nachname=P
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit vorhandenem (Teil-) Nachnamen, PLZ und Ort
+// Suche mit vorhandenem (Teil-) Beschreibung Nachname und Vorname
 GET {{baseUrl}}/api?beschreibung=a&vorname=H&nachname=P
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche mit vorhandenem (Teil-) Nachnamen und Geschlecht
+// Suche mit vorhandenem (Teil-) Beschreibung und Fahrzeugtyp
 GET {{baseUrl}}/api?beschreibung=a&fahrzeugtyp=P
 Accept: application/hal+json
 Authorization: Basic {{userAdmin}} {{password}}
 
 ###
 
-// Suche Nachnamen mit Praefix
+// Suche Beschreibung mit Praefix
 GET {{baseUrl}}/api/beschreibung/A
 Accept: text/plain
 Authorization: Basic {{userAdmin}} {{password}}

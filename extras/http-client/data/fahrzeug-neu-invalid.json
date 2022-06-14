@@ -1,17 +1,11 @@
 {
-  "fahrzeug": {
-    "beschreibung": "",
-    "kennzeichen": "1",
-    "kilometerstand": -52,
-    "erstzulassung": "2984-11-22",
-    "fahrzeugtyp": "F",
-    "fahrzeughalter": {
-      "vorname": "",
-      "nachname": ""
-    }
-  },
-  "user": {
-    "username": "test",
-    "password": "Pass1234"
+  "beschreibung": "",
+  "kennzeichen": "KA B 99999",
+  "kilometerstand": -444,
+  "erstzulassung": "2023-06-12",
+  "fahrzeugtype": "P",
+  "fahrzeughalter": {
+    "vorname": "!",
+    "nachname": ""
   }
 }

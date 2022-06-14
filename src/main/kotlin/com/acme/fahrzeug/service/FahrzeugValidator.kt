@@ -61,7 +61,7 @@ class FahrzeugValidator(fahrzeughalterValidator: FahrzeughalterValidator) {
                 .pattern(KENNZEICHEN_PATTERN).message(
                     ViolationMessage.of(
                         "fahrzeug.kennzeichen.pattern",
-                        "After a capital letter at least one lowercase letter is required.....?",
+                        "Ungültiges Kennzeichen",
                     ),
                 )
         }
@@ -116,7 +116,7 @@ class FahrzeugValidator(fahrzeughalterValidator: FahrzeughalterValidator) {
         /**
          * Muster für einen gültige Beschreibung
          */
-        const val KENNZEICHEN_PATTERN = "[A-ZÖÜÄ]{1,3} [A-ZÖÜÄ]{1,2} [1-9]{1}[0-9]{0,2}"
+        const val KENNZEICHEN_PATTERN = "[A-Z]{1,3} [A-Z]{1,2} \\d{1,4}\$"
 
         /**
          * Kleinster Wert für eine Kategorie.

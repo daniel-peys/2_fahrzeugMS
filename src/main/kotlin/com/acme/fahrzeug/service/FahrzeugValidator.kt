@@ -61,7 +61,7 @@ class FahrzeugValidator(fahrzeughalterValidator: FahrzeughalterValidator) {
                 .pattern(KENNZEICHEN_PATTERN).message(
                     ViolationMessage.of(
                         "fahrzeug.kennzeichen.pattern",
-                        "Ungültiges Kennzeichen",
+                        "Ungültiges Kennzeichen-",
                     ),
                 )
         }
